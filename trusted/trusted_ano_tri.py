@@ -59,7 +59,7 @@ combined_df['qtd_reclamacoes_reguladas_procedentes'] = combined_df['qtd_reclamac
 combined_df['qtd_reclamacoes_reguladas_outras'] = combined_df['qtd_reclamacoes_reguladas_outras'].astype(int) 
 combined_df['qtd_reclamacoes_nao_reguladas'] = combined_df['qtd_reclamacoes_nao_reguladas'].astype(int) 
 combined_df['qtd_total_reclamacoes'] = combined_df['qtd_total_reclamacoes'].astype(int) 
-combined_df['qtd_total_clientes_ccs_scr'] = pd.to_numeric(combined_df['qtd_total_clientes_ccs_scr'], errors='coerce').fillna(0).astype(int)
+combined_df['qtd_total_clientes_ccs_scr'] = pd.to_numeric(combined_df['qtd_total_clientes_ccs_scr'], errors='coerce').fillna(0).astype(int) #convertendo nan pra 0 e depois deixando o type como int
 combined_df['qtd_clientes_ccs'] = pd.to_numeric(combined_df['qtd_clientes_ccs'], errors='coerce').fillna(0).astype(int)
 combined_df['qtd_clientes_scr'] = pd.to_numeric(combined_df['qtd_clientes_scr'], errors='coerce').fillna(0).astype(int)
 
