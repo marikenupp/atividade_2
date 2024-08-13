@@ -37,11 +37,11 @@ def detect_delimiter(file_path):  # Função para detectar o delimitador
         else:
             raise ValueError("Delimitador desconhecido")
 
-def clean_text(text):  # Função para limpar caracteres mal decodificados
+def clean_text(text):  #função para limpar caracteres mal decodificados
     text = unidecode.unidecode(text)
     return text.encode('ascii', 'ignore').decode('ascii')
 
-for subdir, _, files in os.walk(root_directory):  # Iterar sobre as pastas e arquivos
+for subdir, _, files in os.walk(root_directory):  #iterar sobre as pastas e arquivos
     for file_name in files:
         file_path = os.path.join(subdir, file_name)
         delimiter = detect_delimiter(file_path)
@@ -53,7 +53,7 @@ for subdir, _, files in os.walk(root_directory):  # Iterar sobre as pastas e arq
         except UnicodeDecodeError:
             df = pd.read_csv(file_path, delimiter=delimiter, encoding='ISO-8859-1')
 
-        df = df.apply(lambda x: x.apply(clean_text) if x.dtype == "object" else x)  # Limpar e corrigir caracteres mal decodificados
+        df = df.apply(lambda x: x.apply(clean_text) if x.dtype == "object" else x)  #limpar e corrigir caracteres mal decodificados
 
         table_name = f"raw_{os.path.splitext(file_name)[0]}"
         df.to_sql(table_name, engine, if_exists='replace', index=False)
