@@ -12,7 +12,7 @@ engine = create_engine(f'postgresql://{user}:{password}@{host}:{port}/{database}
 
 root_directory = r"C:\Users\maria\OneDrive\Documentos\atividade_2\dados"
 
-def detect_delimiter(file_path):  # Função para detectar o delimitador
+def detect_delimiter(file_path):  #função para detectar o delimitador
     with open(file_path, 'r', encoding='utf-8', errors='ignore') as file:
         first_char = file.read(1)
         if not first_char:
